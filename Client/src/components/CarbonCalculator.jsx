@@ -20,11 +20,11 @@ const CarbonCalculator = () => {
   useEffect(() => {
     const checkLogStatus = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/user/check-today-log', {
+        const res = await axios.get('https://footprism-1.onrender.com/user/check-today-log', {
           withCredentials: true
         });
         setHasLoggedToday(res.data.hasLogged);
-        
+
         // Simulated for demo - remove this line when connecting to real API
         setHasLoggedToday(false);
       } catch (err) {
@@ -119,7 +119,7 @@ const CarbonCalculator = () => {
       const total = travelEmission + electricityEmission + shoppingEmission + wasteEmission + foodEmission;
 
       // Simulated API call - replace with actual axios call
-      const response = await axios.post('http://localhost:3000/user/calculator', {
+      const response = await axios.post('https://footprism-1.onrender.com/user/calculator', {
         ...formData,
         carbonFootprint: total
       }, { withCredentials: true });
@@ -200,9 +200,8 @@ const CarbonCalculator = () => {
                         value={formData[field.name]}
                         onChange={handleChange}
                         disabled={hasLoggedToday}
-                        className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors ${
-                          hasLoggedToday ? 'bg-gray-50 text-gray-500' : 'border-gray-200'
-                        } ${errors[field.name] ? 'border-red-300' : ''}`}
+                        className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors ${hasLoggedToday ? 'bg-gray-50 text-gray-500' : 'border-gray-200'
+                          } ${errors[field.name] ? 'border-red-300' : ''}`}
                       />
                     </div>
                     {errors[field.name] && (
@@ -224,9 +223,8 @@ const CarbonCalculator = () => {
                     value={formData.diet}
                     onChange={handleChange}
                     disabled={hasLoggedToday}
-                    className={`w-full pl-10 cursor-pointer pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors ${
-                      hasLoggedToday ? 'bg-gray-50 text-gray-500' : 'border-gray-200'
-                    }`}
+                    className={`w-full pl-10 cursor-pointer pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors ${hasLoggedToday ? 'bg-gray-50 text-gray-500' : 'border-gray-200'
+                      }`}
                   >
                     <option className='bg-emerald-200 text-gray-800' value="veg">Vegetarian</option>
                     <option className='bg-emerald-200 text-gray-800' value="mixed">Mixed</option>
@@ -240,21 +238,20 @@ const CarbonCalculator = () => {
                 type="button"
                 onClick={calculateCarbon}
                 disabled={isCalculating || hasLoggedToday}
-                className={`w-full py-4 cursor-pointer px-6 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center space-x-2 ${
-                  hasLoggedToday
+                className={`w-full py-4 cursor-pointer px-6 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center space-x-2 ${hasLoggedToday
                     ? 'bg-gray-400 cursor-not-allowed'
                     : isCalculating
-                    ? 'bg-emerald-400 cursor-wait'
-                    : 'bg-emerald-600 hover:bg-emerald-700 hover:shadow-lg transform hover:-translate-y-0.5'
-                }`}
+                      ? 'bg-emerald-400 cursor-wait'
+                      : 'bg-emerald-600 hover:bg-emerald-700 hover:shadow-lg transform hover:-translate-y-0.5'
+                  }`}
               >
                 <Calculator className="w-5 h-5" />
                 <span>
-                  {hasLoggedToday 
-                    ? 'Already Logged Today' 
-                    : isCalculating 
-                    ? 'Calculating...' 
-                    : 'Calculate Carbon Footprint'
+                  {hasLoggedToday
+                    ? 'Already Logged Today'
+                    : isCalculating
+                      ? 'Calculating...'
+                      : 'Calculate Carbon Footprint'
                   }
                 </span>
               </button>
@@ -266,7 +263,7 @@ const CarbonCalculator = () => {
             {carbonOutput && (
               <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
                 <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Your Carbon Footprint</h3>
-                
+
                 {/* Total Emissions */}
                 <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl p-6 text-white text-center mb-6">
                   <div className="text-3xl font-bold">{carbonOutput.total} kg</div>
@@ -303,7 +300,7 @@ const CarbonCalculator = () => {
                   {feedback.icon}
                   <h3 className={`text-xl font-bold ${feedback.color}`}>Assessment</h3>
                 </div>
-                
+
                 <p className={`text-lg mb-6 ${feedback.color}`}>
                   {feedback.message}
                 </p>

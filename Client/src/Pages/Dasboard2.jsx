@@ -75,7 +75,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchCarbonData = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/user/carbon-data', { withCredentials: true });
+        const res = await axios.get('https://footprism-1.onrender.com/user/carbon-data', { withCredentials: true });
         const data = res.data;
         setCarbonData(data);
 
@@ -128,7 +128,7 @@ function Dashboard() {
 
     if (route === '/') {
       // Hit logout endpoint if going to Home
-      axios.post('http://localhost:3000/user/logout', {}, { withCredentials: true })
+      axios.post('https://footprism-1.onrender.com/user/logout', {}, { withCredentials: true })
         .then(() => {
           navigate('/');
         })
@@ -141,7 +141,7 @@ function Dashboard() {
     }
   };
   useEffect(() => {
-    axios.get('http://localhost:3000/user/me', { withCredentials: true })
+    axios.get('https://footprism-1.onrender.com/user/me', { withCredentials: true })
       .then(res => {
         // Token is valid, do nothing or set user state
       })
@@ -154,7 +154,7 @@ function Dashboard() {
 
   const handleLogout = () => {
     // Clear auth cookie by hitting logout endpoint (backend should clear the cookie)
-    axios.post('http://localhost:3000/user/logout', {}, { withCredentials: true })
+    axios.post('https://footprism-1.onrender.com/user/logout', {}, { withCredentials: true })
       .then(() => {
         navigate('/');
       })

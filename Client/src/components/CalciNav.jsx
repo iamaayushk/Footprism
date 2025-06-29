@@ -16,7 +16,7 @@ function CalciNav() {
         navigate('/dashboard');
     };
     useEffect(() => {
-        axios.get('http://localhost:3000/user/me', { withCredentials: true })
+        axios.get('https://footprism-1.onrender.com/user/me', { withCredentials: true })
             .then(res => {
                 // Token is valid, do nothing or set user state
             })
@@ -28,7 +28,7 @@ function CalciNav() {
 
     const handleLogout = () => {
         // Clear auth cookie by hitting logout endpoint (backend should clear the cookie)
-        axios.post('http://localhost:3000/user/logout', {}, { withCredentials: true })
+        axios.post('https://footprism-1.onrender.com/user/logout', {}, { withCredentials: true })
             .then(() => {
                 navigate('/');
             })

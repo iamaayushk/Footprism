@@ -8,7 +8,7 @@ const cookieParser= require('cookie-parser');
 app.use(cookieParser());  
 
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: "https://footprism.vercel.app/", 
   methods:["get", "post", "put", "delete"],
   credentials: true,              
 }));

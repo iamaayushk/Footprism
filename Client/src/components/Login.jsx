@@ -19,7 +19,7 @@ function Login() {
         e.preventDefault();
         setIsLoading(true);
         try {
-            const res = await axios.post('http://localhost:3000/user/login', formData, {
+            const res = await axios.post('https://footprism-1.onrender.com/user/login', formData, {
                 withCredentials: true,
             });
             console.log('Login successful', formData);
