@@ -24,7 +24,7 @@ function Home() {
   return (
     <>
       <Navbar />
-    <section className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center px-6 relative overflow-hidden">
+    <section id='home' className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center px-6 relative overflow-hidden">
       
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">

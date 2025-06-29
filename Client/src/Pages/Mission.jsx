@@ -4,7 +4,7 @@ import { Globe, Target, Zap, Car, Utensils, ShoppingBag, Trash2, Leaf, ArrowRigh
 // Mission Component
 function Mission() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 py-20 px-4">
+        <div id='mission' className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 py-20 px-4">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-16">

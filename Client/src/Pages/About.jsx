@@ -88,7 +88,7 @@ function About() {
         }, 1000);
     }
     return (
-        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+        <div id='about' className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
             {/* Hero Section */}
             <div className="relative py-20 px-4 overflow-hidden">
                 <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>

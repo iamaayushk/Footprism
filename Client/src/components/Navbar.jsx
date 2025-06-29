@@ -14,7 +14,7 @@ function Navbar() {
         <div className="flex justify-between items-center h-16">
 
           {/* Logo */}
-          <a href='/home' className="flex items-center space-x-2 group">
+          <a href='#' className="flex items-center space-x-2 group">
             <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <Leaf className="w-6 h-6 text-white" />
             </div>
@@ -33,14 +33,14 @@ function Navbar() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-300"></span>
             </a>
             <a
-              href='/about'
+              href='#about'
               className="relative text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 group"
             >
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-300"></span>
             </a>
             <a
-              href='/mission'
+              href='#mission'
               className="relative text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 group"
             >
               Mission
@@ -73,21 +73,21 @@ function Navbar() {
         } overflow-hidden bg-white/95 backdrop-blur-md border-t border-green-100`}>
         <div className="px-4 py-4 space-y-4">
           <a
-            href='/'
+            href='#'
             className="block text-gray-700 hover:text-green-600 font-medium py-2 px-3 rounded-lg hover:bg-green-50 transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Home
           </a>
           <a
-            href='/about'
+            href='#about'
             className="block text-gray-700 hover:text-green-600 font-medium py-2 px-3 rounded-lg hover:bg-green-50 transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             About
           </a>
           <a
-            href='/mission'
+            href='#mission'
             className="block text-gray-700 hover:text-green-600 font-medium py-2 px-3 rounded-lg hover:bg-green-50 transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(false)}
           >
