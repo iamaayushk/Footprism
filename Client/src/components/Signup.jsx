@@ -44,7 +44,7 @@ function Signup() {
             </div>
           </div>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">
-            Join Greenify
+            Join FootPrism
           </h1>
         </div>
 
@@ -163,9 +163,9 @@ function Signup() {
           </div>
         </div>
 
-        
+
         <div className="text-center mt-8 text-gray-500 text-sm">
-          <p>© 2025 Greenify. Made with ❤️ by Aayush</p>
+          <p>© 2025 FootPrism. Made with ❤️ by Aayush</p>
         </div>
       </div>
     </div>

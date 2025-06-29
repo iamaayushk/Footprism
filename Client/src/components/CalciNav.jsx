@@ -1,42 +1,42 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Home, BarChart3, LogOut, Leaf } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function CalciNav() {
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     // Simulated navigation functions - replace with actual useNavigate hooks
     const handleHome = () => {
         console.log('Navigate to home');
         navigate('/');
     };
-    
+
     const handleDash = () => {
         console.log('Navigate to dashboard');
         navigate('/dashboard');
     };
     useEffect(() => {
-    axios.get('http://localhost:3000/user/me', { withCredentials: true })
-      .then(res => {
-        // Token is valid, do nothing or set user state
-      })
-      .catch(err => {
-        console.log('Token invalid or expired');
-        navigate('/login'); // or '/'
-      });
-  }, []);
-    
+        axios.get('http://localhost:3000/user/me', { withCredentials: true })
+            .then(res => {
+                // Token is valid, do nothing or set user state
+            })
+            .catch(err => {
+                console.log('Token invalid or expired');
+                navigate('/login'); // or '/'
+            });
+    }, []);
+
     const handleLogout = () => {
-    // Clear auth cookie by hitting logout endpoint (backend should clear the cookie)
-    axios.post('http://localhost:3000/user/logout', {}, { withCredentials: true })
-      .then(() => {
-        navigate('/');
-      })
-      .catch(err => {
-        console.error('Logout failed:', err);
-        navigate('/');
-      });
-  };
+        // Clear auth cookie by hitting logout endpoint (backend should clear the cookie)
+        axios.post('http://localhost:3000/user/logout', {}, { withCredentials: true })
+            .then(() => {
+                navigate('/');
+            })
+            .catch(err => {
+                console.error('Logout failed:', err);
+                navigate('/');
+            });
+    };
 
     return (
         <nav className="w-full h-20 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm sticky top-0 z-50">
@@ -47,7 +47,7 @@ function CalciNav() {
                         <Leaf className="w-6 h-6 text-white" />
                     </div>
                     <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                        GREENIFY
+                        FootPrism
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@ function CalciNav() {
                             {/* Home */}
                         </span>
                     </button>
-                    
+
                     <button
                         onClick={handleDash}
                         className="group relative cursor-pointer p-3 rounded-xl bg-teal-50 hover:bg-teal-100 border border-teal-200 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
@@ -74,7 +74,7 @@ function CalciNav() {
                             {/* Dashboard */}
                         </span>
                     </button>
-                    
+
                     <button
                         onClick={handleLogout}
                         className="group relative cursor-pointer p-3 rounded-xl bg-red-50 hover:bg-red-100 border border-red-200 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"

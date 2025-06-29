@@ -167,7 +167,7 @@ function Login() {
                 </div>
 
                 <div className="text-center mt-8 text-gray-500 text-sm">
-                    <p>© 2025 Greenify. Made with ❤️ by Aayush</p>
+                    <p>© 2025 FootPrism. Made with ❤️ by Aayush</p>
                 </div>
             </div>
         </div>

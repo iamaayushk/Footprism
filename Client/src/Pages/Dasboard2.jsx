@@ -43,7 +43,7 @@ const DashNav = () => (
     <div className="flex items-center space-x-3">
       <Leaf className="text-emerald-600 w-7 h-7" />
       <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 text-transparent bg-clip-text">
-        GREENIFY
+        FootPrism
       </span>
     </div>
     <div className="flex items-center gap-3">
@@ -102,9 +102,9 @@ function Dashboard() {
 
         // Pie chart data update
         setPieData([
-      { name: 'Monthly Goal', value: parseFloat(MONTHLY_CARBON_GOAL.toFixed(2)) },
-      { name: 'Your Average', value: parseFloat(avgPerDay.toFixed(2)) }
-    ]);
+          { name: 'Monthly Goal', value: parseFloat(MONTHLY_CARBON_GOAL.toFixed(2)) },
+          { name: 'Your Average', value: parseFloat(avgPerDay.toFixed(2)) }
+        ]);
 
       } catch (err) {
         console.error('Failed to fetch carbon data', err);
@@ -247,25 +247,25 @@ function Dashboard() {
               </ChartCard>
             </div>
             <ChartCard title="Monthly Goal vs Your Average">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie
-              data={pieData}
-              dataKey="value"
-              nameKey="name"
-              cx="50%"
-              cy="50%"
-              outerRadius={80}
-              label
-            >
-              {pieData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
-      </ChartCard>
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={pieData}
+                    dataKey="value"
+                    nameKey="name"
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={80}
+                    label
+                  >
+                    {pieData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+            </ChartCard>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
@@ -284,25 +284,25 @@ function Dashboard() {
             <ChartCard title="Sustainability Goals">
               <div className="flex flex-col items-center justify-center h-full text-center space-y-3">
                 <Target className="text-orange-600 w-12 h-12" />
-               <div>
-        <h3 className="text-lg text-gray-300 font-semibold">
-          Monthly Goal: {MONTHLY_CARBON_GOAL} Kg/CO<sub>2</sub>
-        </h3>
-        <p className="text-gray-400 text-sm">
-          Daily Budget: {(MONTHLY_CARBON_GOAL / 30).toFixed(2)} Kg/CO<sub>2</sub>
-        </p>
-      </div>
+                <div>
+                  <h3 className="text-lg text-gray-300 font-semibold">
+                    Monthly Goal: {MONTHLY_CARBON_GOAL} Kg/CO<sub>2</sub>
+                  </h3>
+                  <p className="text-gray-400 text-sm">
+                    Daily Budget: {(MONTHLY_CARBON_GOAL / 30).toFixed(2)} Kg/CO<sub>2</sub>
+                  </p>
+                </div>
 
-      <div>
-        <h3 className="text-lg text-gray-300 font-semibold">
-          Avg Daily Emission: {averagePerDay.toFixed(2)} Kg/CO<sub>2</sub>
-        </h3>
-        <p className="text-gray-400 text-sm">
-          {averagePerDay <= (MONTHLY_CARBON_GOAL / 30)
-            ? "You're on track! Keep it up."
-            : "You need to reduce daily carbon usage to meet your goal."}
-        </p>
-      </div>
+                <div>
+                  <h3 className="text-lg text-gray-300 font-semibold">
+                    Avg Daily Emission: {averagePerDay.toFixed(2)} Kg/CO<sub>2</sub>
+                  </h3>
+                  <p className="text-gray-400 text-sm">
+                    {averagePerDay <= (MONTHLY_CARBON_GOAL / 30)
+                      ? "You're on track! Keep it up."
+                      : "You need to reduce daily carbon usage to meet your goal."}
+                  </p>
+                </div>
 
               </div>
             </ChartCard>

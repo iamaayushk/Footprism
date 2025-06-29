@@ -4,24 +4,24 @@ import { useNavigate } from 'react-router-dom';
 
 const aboutData = [
     {
-        title: "What is Greenify?",
-        description: "Greenify is a modern web application that empowers individuals to track, reduce, and take responsibility for their carbon footprint. With powerful visual tools and a supportive community, it encourages small daily steps that collectively create a big environmental impact.",
+        title: "What is FootPrism?",
+        description: "FootPrism is a modern web application that empowers individuals to track, reduce, and take responsibility for their carbon footprint. With powerful visual tools and a supportive community, it encourages small daily steps that collectively create a big environmental impact.",
         icon: <Leaf className="w-8 h-8" />,
         color: "emerald"
     },
     {
         title: "Problem We Solve",
-        description: "Climate change is one of the most urgent challenges of our time. While many people want to live more sustainably, they lack the tools and awareness to understand their environmental impact. Most of us don't realize how daily actions like driving to work or consuming fast fashion add up in carbon emissions. Greenify bridges this gap.",
+        description: "Climate change is one of the most urgent challenges of our time. While many people want to live more sustainably, they lack the tools and awareness to understand their environmental impact. Most of us don't realize how daily actions like driving to work or consuming fast fashion add up in carbon emissions. FootPrism bridges this gap.",
         icon: <Target className="w-8 h-8" />,
         color: "red"
     },
     {
-        title: "How Greenify Works",
+        title: "How FootPrism Works",
         description: [
             "Track your activities such as transportation, energy use, diet, and shopping",
             "Visualize your carbon emissions on a personal dashboard",
             "Earn badges and track progress over time",
-            
+
         ],
         icon: <Cog className="w-8 h-8" />,
         color: "blue"
@@ -57,7 +57,7 @@ const Card = ({ title, description, icon, color }) => {
         red: "bg-red-50 border-red-200 text-red-600",
         blue: "bg-blue-50 border-blue-200 text-blue-600"
     };
-    
+
     return (
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 max-w-sm">
             <div className={`inline-flex p-3 rounded-xl mb-6 ${colorClasses[color]}`}>
@@ -82,11 +82,11 @@ const Card = ({ title, description, icon, color }) => {
 
 function About() {
     const navigate = useNavigate();
-    const loginNavigate=()=>{
-    setTimeout(() => {
-      navigate('/login')
-    }, 1000);
-  }
+    const loginNavigate = () => {
+        setTimeout(() => {
+            navigate('/login')
+        }, 1000);
+    }
     return (
         <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
             {/* Hero Section */}
@@ -99,7 +99,7 @@ function About() {
                         </div>
                     </div>
                     <h1 className="text-6xl font-bold text-gray-800 mb-6">
-                        About <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Greenify</span>
+                        About <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">FootPrism</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Empowering individuals to make a meaningful impact on climate change through awareness, action, and community.
@@ -111,9 +111,9 @@ function About() {
             <div className="max-w-7xl mx-auto px-4 pb-20">
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mb-20">
                     {aboutData.map((about, index) => (
-                        <Card 
-                            key={index} 
-                            title={about.title} 
+                        <Card
+                            key={index}
+                            title={about.title}
                             description={about.description}
                             icon={about.icon}
                             color={about.color}
@@ -124,12 +124,12 @@ function About() {
                 {/* Features Section */}
                 <div className="bg-white rounded-3xl shadow-xl p-12 border border-gray-100">
                     <div className="text-center mb-12">
-                        <h2 className="text-4xl font-bold text-gray-800 mb-4">Why Choose Greenify?</h2>
+                        <h2 className="text-4xl font-bold text-gray-800 mb-4">Why Choose FootPrism?</h2>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                             Join thousands of users who are already making a difference in the fight against climate change
                         </p>
                     </div>
-                    
+
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {features.map((feature, index) => (
                             <div key={index} className="text-center group">
@@ -151,9 +151,9 @@ function About() {
                         <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
                             Start your journey towards a more sustainable lifestyle today. Every small action counts when we work together.
                         </p>
-                        <button 
-                        onClick={loginNavigate}
-                        className="bg-white cursor-pointer text-emerald-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                        <button
+                            onClick={loginNavigate}
+                            className="bg-white cursor-pointer text-emerald-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
                             Get Started Now
                         </button>
                     </div>

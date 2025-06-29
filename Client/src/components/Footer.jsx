@@ -1,19 +1,19 @@
 import React from 'react';
-import { Facebook, Linkedin, Instagram, Leaf,X } from 'lucide-react';
+import { Facebook, Linkedin, Instagram, Leaf, X } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white py-8">
       <div className="max-w-6xl mx-auto px-6">
-        
+
         {/* Main Content */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          
+
           {/* Brand */}
           <div className="flex items-center gap-2">
             <Leaf className="w-6 h-6 text-green-300" />
             <div>
-              <h2 className="text-2xl font-bold">GREENIFY</h2>
+              <h2 className="text-2xl font-bold">FootPrism</h2>
               <p className="text-green-200 text-sm">Track • Reduce • Thrive</p>
             </div>
           </div>
@@ -44,7 +44,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-green-600 mt-6 pt-4 text-center">
           <p className="text-green-200 text-sm">
-            Made with <span className="text-red-400">❤️</span> by Aayush • © 2025 Greenify
+            Made with <span className="text-red-400">❤️</span> by Aayush • © 2025 FootPrism
           </p>
         </div>
       </div>
