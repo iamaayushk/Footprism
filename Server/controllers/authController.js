@@ -51,7 +51,7 @@ exports.login = async (req,res)=>{
     const token = jwt.sign({id: user._id}, "mysecretkey", {expiresIn:"1d"});
     res.cookie("token", token,{
         httpOnly:true,
-        // secure: true,
+        secure: true,
         sameSite:"strict",
         maxAge: 24*60*60*1000,
     }).json({msg:"Login Successfully", user:{id: user._id,name:user.name, email: user.email}})
