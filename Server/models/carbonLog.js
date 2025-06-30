@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const CarbonCalculationSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user', // Make sure you have a User model
+    ref: 'User', // Make sure you have a User model
     required: true
   },
   travel:{

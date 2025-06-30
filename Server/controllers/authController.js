@@ -155,7 +155,7 @@ exports.checklog= async (req, res) => {
 // get carbon data 
 exports.getCarbonData = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const userId = req.user._id;
 
     const data = await CarbonCalculation.find({ user: userId }).sort({ timestamp: 1 });
     res.json(data);
