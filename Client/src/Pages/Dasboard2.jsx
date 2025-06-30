@@ -84,7 +84,7 @@ function Dashboard() {
         const thisYear = now.getFullYear();
 
         const thisMonthEntries = data.filter(entry => {
-          const date = new Date(entry.Date);
+          const date = new Date(entry.date);
           return date.getMonth() === thisMonth && date.getFullYear() === thisYear;
         });
 
@@ -172,7 +172,7 @@ function Dashboard() {
   ];
 
   const lineData = carbonData.map(entry => ({
-    name: new Date(entry.Date).toLocaleDateString(),
+    name: new Date(entry.date).toLocaleDateString(),
     value: entry.carbonFootprint
   }));
 

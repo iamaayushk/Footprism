@@ -31,10 +31,14 @@ const CarbonCalculationSchema = new mongoose.Schema({
      type:Number,
     required:true,
   },
-    Date: {
+   date: {
     type: Date,
-    default: Date.now
-  },
+    default: () => {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // strip time
+      return today;
+    }
+  }
 });
 
 module.exports = mongoose.model('CarbonCalculation', CarbonCalculationSchema);

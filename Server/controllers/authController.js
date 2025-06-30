@@ -157,7 +157,7 @@ exports.getCarbonData = async (req, res) => {
   try {
     const userId = req.user._id;
 
-    const data = await CarbonCalculation.find({ user: userId }).sort({ timestamp: 1 });
+    const data = await CarbonCalculation.find({ userId: req.user._id }).sort({ date: 1 });
     res.json(data);
   } catch (err) {
     console.error(err);
