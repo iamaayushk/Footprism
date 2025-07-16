@@ -121,7 +121,7 @@ function Dashboard() {
     { icon: Calculator, label: 'Calculator', route: '/calculator' },
     { icon: BarChart3, label: 'Dashboard', route: '/dashboard' },
     { icon: MessageCircle, label: 'Contact', route: '/contact' },
-    { icon: LogOut, label: 'Logout', route: '/logout' },
+    { icon: LogOut, label: 'Logout', route: '/' },
   ];
 
   const handleClick = (index, route) => {
