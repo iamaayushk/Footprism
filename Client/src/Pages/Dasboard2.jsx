@@ -141,16 +141,16 @@ function Dashboard() {
       navigate(route);
     }
   };
-  // useEffect(() => {
-  //   axios.get('https://footprism-1.onrender.com/user/me', { withCredentials: true })
-  //     .then(res => {
-  //       // Token is valid, do nothing or set user state
-  //     })
-  //     .catch(err => {
-  //       console.log('Token invalid or expired');
-  //       navigate('/login'); // or '/'
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios.get('https://footprism-1.onrender.com/user/me', { withCredentials: true })
+      .then(res => {
+        // Token is valid, do nothing or set user state
+      })
+      .catch(err => {
+        console.log('Token invalid or expired');
+        navigate('/login'); // or '/'
+      });
+  }, []);
 
 
   const handleLogout = () => {
