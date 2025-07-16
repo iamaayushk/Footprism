@@ -16,7 +16,6 @@ const CarbonCalculator = () => {
   const [hasLoggedToday, setHasLoggedToday] = useState(false);
   const [errors, setErrors] = useState({});
 
-  // Simulated API call - replace with actual axios calls
   useEffect(() => {
     const checkLogStatus = async () => {
       try {
@@ -24,8 +23,6 @@ const CarbonCalculator = () => {
           withCredentials: true
         });
         setHasLoggedToday(res.data.hasLogged);
-
-        // Simulated for demo - remove this line when connecting to real API
         setHasLoggedToday(false);
       } catch (err) {
         console.error("Failed to check today's log:", err);
@@ -118,7 +115,6 @@ const CarbonCalculator = () => {
 
       const total = travelEmission + electricityEmission + shoppingEmission + wasteEmission + foodEmission;
 
-      // Simulated API call - replace with actual axios call
       const response = await axios.post('https://footprism-1.onrender.com/user/calculator', {
         ...formData,
         carbonFootprint: total
@@ -184,7 +180,7 @@ const CarbonCalculator = () => {
                 </div>
               )}
 
-              {/* Input Fields */}
+             
               {inputFields.map((field) => {
                 const Icon = field.icon;
                 return (
@@ -211,7 +207,7 @@ const CarbonCalculator = () => {
                 );
               })}
 
-              {/* Diet Selection */}
+              
               <div className="space-y-2 ">
                 <label className="block text-sm font-medium text-gray-700">Diet Type</label>
                 <div className="relative">
@@ -233,7 +229,7 @@ const CarbonCalculator = () => {
                 </div>
               </div>
 
-              {/* Submit Button */}
+              
               <button
                 type="button"
                 onClick={calculateCarbon}
@@ -258,7 +254,7 @@ const CarbonCalculator = () => {
             </div>
           </div>
 
-          {/* Results Panel */}
+          
           <div className="space-y-6">
             {carbonOutput && (
               <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">

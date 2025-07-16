@@ -39,7 +39,7 @@ const ChartCard = ({ title, children }) => (
 );
 
 const DashNav = () => (
-  <header className="bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200 py-4 px-6 flex items-center justify-between">
+  <header className="bg-white/90 fixed z-10 min-w-full backdrop-blur-md shadow-sm border-b border-gray-200 py-4 px-6 flex items-center justify-between">
     <div className="flex items-center space-x-3">
       <Leaf className="text-emerald-600 w-7 h-7" />
       <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 text-transparent bg-clip-text">
@@ -121,6 +121,7 @@ function Dashboard() {
     { icon: Calculator, label: 'Calculator', route: '/calculator' },
     { icon: BarChart3, label: 'Dashboard', route: '/dashboard' },
     { icon: MessageCircle, label: 'Contact', route: '/contact' },
+    { icon: LogOut, label: 'Logout', route: '/logout' },
   ];
 
   const handleClick = (index, route) => {
@@ -140,16 +141,16 @@ function Dashboard() {
       navigate(route);
     }
   };
-  useEffect(() => {
-    axios.get('https://footprism-1.onrender.com/user/me', { withCredentials: true })
-      .then(res => {
-        // Token is valid, do nothing or set user state
-      })
-      .catch(err => {
-        console.log('Token invalid or expired');
-        navigate('/login'); // or '/'
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios.get('https://footprism-1.onrender.com/user/me', { withCredentials: true })
+  //     .then(res => {
+  //       // Token is valid, do nothing or set user state
+  //     })
+  //     .catch(err => {
+  //       console.log('Token invalid or expired');
+  //       navigate('/login'); // or '/'
+  //     });
+  // }, []);
 
 
   const handleLogout = () => {
@@ -186,34 +187,33 @@ function Dashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-white">
+    <div className="min-h-screen  bg-gradient-to-br from-emerald-50 via-blue-50 to-white">
       <DashNav />
 
       <main className="flex">
-        <aside className="w-20 p-4 flex flex-col items-center border-r m-2 rounded-xl border-gray-200 bg-gray-900 shadow-sm min-h-screen">
+        <aside className="w-20 mt-16 p-4 fixed flex-col items-center  bg-gray-900 shadow-sm h-screen">
           <div className="flex-1 space-y-20  ">
             {navItems.map((item, i) => (
-              <button
-                key={i}
-                onClick={() => handleClick(i, item.route)}
-                className={`w-12 h-12 rounded-xl flex items-center justify-center cursor-pointer transition-all ${activeIndex === i
-                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white scale-110 shadow-md'
-                  : 'bg-gray-50 hover:bg-gray-100 text-gray-600'
-                  }`}
-              >
-                <item.icon className="w-5 h-5" />
-              </button>
-            ))}
+  <button
+    key={i}
+    onClick={() => handleClick(i, item.route)}
+    className={`w-12 h-12 rounded-xl flex items-center justify-center cursor-pointer transition-all 
+      ${item.label === 'Logout'
+        ? 'bg-red-100 text-red-600 hover:bg-red-200'
+        : activeIndex === i
+          ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white scale-110 shadow-md'
+          : 'bg-gray-50 hover:bg-gray-100 text-gray-600'
+      }`}
+  >
+    <item.icon className="w-5 h-5" />
+  </button>
+))}
+
           </div>
-          <button
-            onClick={handleLogout}
-            className="mt-4 w-12 h-12 cursor-pointer rounded-xl bg-red-50 hover:bg-red-100 text-red-500 flex items-center justify-center"
-          >
-            <LogOut className="w-5 h-5" />
-          </button>
+          
         </aside>
 
-        <section className="flex-1 p-6 bg-gray-100">
+        <section className="flex-1 ml-18 mt-16 p-6 bg-gray-100">
           <header className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900">Dashboard Overview</h1>
             <p className="text-gray-600">Monitor your sustainability metrics and progress for this month</p>
