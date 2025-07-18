@@ -1,6 +1,6 @@
-# Green Step
+# FootPrism
 
-Green Step is a web application that empowers users to track, analyze, and reduce their carbon footprint. The platform offers a dashboard with visualizations, calculators, and goal-setting features to promote sustainable living.
+FootPrism is a web application that empowers users to track, analyze, and reduce their carbon footprint. The platform offers a dashboard with visualizations, calculators, and goal-setting features to promote sustainable living.
 
 ## Features
 
@@ -32,7 +32,7 @@ Green Step is a web application that empowers users to track, analyze, and reduc
 
    ```powershell
    git clone <repository-url>
-   cd "Green Step"
+   cd "FootPrism"
    ```
 
 2. **Install dependencies:**
@@ -75,7 +75,7 @@ Green Step is a web application that empowers users to track, analyze, and reduc
 ## Project Structure
 
 ```
-Green Step/
+FootPrism/
 ├── Client/
 │   ├── public/
 │   ├── src/
@@ -104,9 +104,9 @@ Green Step/
 4. **Track your progress** and adjust your habits to meet your sustainability goals.
 
 
-# Green Step Server
+# FootPrism Server
 
-This is the backend server for the Green Step application. It provides RESTful APIs for user authentication, carbon footprint logging, and data retrieval to support the frontend dashboard and calculator.
+This is the backend server for the FootPrism application. It provides RESTful APIs for user authentication, carbon footprint logging, and data retrieval to support the frontend dashboard and calculator.
 
 ---
 
@@ -240,4 +240,4 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ---
 
-_Green Step – Take your first step towards a greener future!_
+_FootPrism – Take your first step towards a greener future!_
