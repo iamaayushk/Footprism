@@ -22,7 +22,7 @@ function Login() {
             const res = await axios.post('https://footprism-1.onrender.com/user/login', formData, {
                 withCredentials: true,
             });
-            console.log('Login successful', formData);
+            // console.log('Login successful', formData);
             setSuccess('Login successful! Redirecting...');
             setTimeout(() => {
                 navigate('/dashboard');
