@@ -60,55 +60,55 @@ const CarbonCalculator = () => {
   }, [errors]);
 
   const getFeedbackMessage = useCallback((carbon) => {
-  const value = parseFloat(carbon);
-  if (value <= 5) {
-    return {
-      message: "🌱 Outstanding! Your daily carbon use is climate-friendly.",
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-50 border-emerald-200",
-      icon: <CheckCircle className="w-5 h-5 text-emerald-600" />,
-      recommendations: [
-        "Maintain this eco-friendly lifestyle!",
-        "You're helping limit global warming."
-      ]
-    };
-  } else if (value <= 10) {
-    return {
-      message: "👍 Good! You're below the global average. Aim for < 5kg/day.",
-      color: "text-green-700",
-      bgColor: "bg-green-50 border-green-200",
-      icon: <Award className="w-5 h-5 text-green-700" />,
-      recommendations: [
-        "Use public transport or bike more.",
-        "Reduce energy or water heating usage."
-      ]
-    };
-  } else if (value <= 20) {
-    return {
-      message: "⚠️ Moderate. There's room for improvement.",
-      color: "text-amber-700",
-      bgColor: "bg-amber-50 border-amber-200",
-      icon: <AlertTriangle className="w-5 h-5 text-amber-700" />,
-      recommendations: [
-        "Switch to LED bulbs & energy-efficient appliances.",
-        "Try more plant-based meals.",
-        "Avoid fast fashion or excessive shopping."
-      ]
-    };
-  } else {
-    return {
-      message: "🔥 High daily footprint. Make greener choices.",
-      color: "text-red-700",
-      bgColor: "bg-red-50 border-red-200",
-      icon: <AlertTriangle className="w-5 h-5 text-red-700" />,
-      recommendations: [
-        "Avoid flights & reduce car use.",
-        "Eat less meat or dairy.",
-        "Track & cut down electricity/waste usage."
-      ]
-    };
-  }
-}, []);
+    const value = parseFloat(carbon);
+    if (value <= 5) {
+      return {
+        message: "🌱 Outstanding! Your daily carbon use is climate-friendly.",
+        color: "text-emerald-600",
+        bgColor: "bg-emerald-50 border-emerald-200",
+        icon: <CheckCircle className="w-5 h-5 text-emerald-600" />,
+        recommendations: [
+          "Maintain this eco-friendly lifestyle!",
+          "You're helping limit global warming."
+        ]
+      };
+    } else if (value <= 10) {
+      return {
+        message: "👍 Good! You're below the global average. Aim for < 5kg/day.",
+        color: "text-green-700",
+        bgColor: "bg-green-50 border-green-200",
+        icon: <Award className="w-5 h-5 text-green-700" />,
+        recommendations: [
+          "Use public transport or bike more.",
+          "Reduce energy or water heating usage."
+        ]
+      };
+    } else if (value <= 20) {
+      return {
+        message: "⚠️ Moderate. There's room for improvement.",
+        color: "text-amber-700",
+        bgColor: "bg-amber-50 border-amber-200",
+        icon: <AlertTriangle className="w-5 h-5 text-amber-700" />,
+        recommendations: [
+          "Switch to LED bulbs & energy-efficient appliances.",
+          "Try more plant-based meals.",
+          "Avoid fast fashion or excessive shopping."
+        ]
+      };
+    } else {
+      return {
+        message: "🔥 High daily footprint. Make greener choices.",
+        color: "text-red-700",
+        bgColor: "bg-red-50 border-red-200",
+        icon: <AlertTriangle className="w-5 h-5 text-red-700" />,
+        recommendations: [
+          "Avoid flights & reduce car use.",
+          "Eat less meat or dairy.",
+          "Track & cut down electricity/waste usage."
+        ]
+      };
+    }
+  }, []);
 
 
   const calculateCarbon = useCallback(async () => {
@@ -195,7 +195,7 @@ const CarbonCalculator = () => {
                 </div>
               )}
 
-             
+
               {inputFields.map((field) => {
                 const Icon = field.icon;
                 return (
@@ -222,7 +222,7 @@ const CarbonCalculator = () => {
                 );
               })}
 
-              
+
               <div className="space-y-2 ">
                 <label className="block text-sm font-medium text-gray-700">Diet Type</label>
                 <div className="relative">
@@ -244,19 +244,19 @@ const CarbonCalculator = () => {
                 </div>
               </div>
 
-              
-             <button
-  type="button"
-  onClick={calculateCarbon}
-  disabled={isCalculating || hasLoggedToday}
-  className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center space-x-2 
+
+              <button
+                type="button"
+                onClick={calculateCarbon}
+                disabled={isCalculating || hasLoggedToday}
+                className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center space-x-2 
     ${hasLoggedToday
-      ? 'bg-gray-400 cursor-not-allowed'
-      : isCalculating
-        ? 'bg-emerald-400 cursor-wait'
-        : 'bg-emerald-600 hover:bg-emerald-700 hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer'
-    }`}
->
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : isCalculating
+                      ? 'bg-emerald-400 cursor-wait'
+                      : 'bg-emerald-600 hover:bg-emerald-700 hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer'
+                  }`}
+              >
 
                 <Calculator className="w-5 h-5" />
                 <span>
@@ -271,7 +271,7 @@ const CarbonCalculator = () => {
             </div>
           </div>
 
-          
+
           <div className="space-y-6">
             {carbonOutput && (
               <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
