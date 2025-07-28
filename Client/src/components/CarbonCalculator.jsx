@@ -59,7 +59,7 @@ const CarbonCalculator = () => {
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   }, [errors]);
 
-  const getDailyFeedbackMessage = useCallback((carbon) => {
+  const getFeedbackMessage = useCallback((carbon) => {
   const value = parseFloat(carbon);
   if (value <= 5) {
     return {
