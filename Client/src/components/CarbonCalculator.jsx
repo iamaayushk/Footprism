@@ -59,42 +59,57 @@ const CarbonCalculator = () => {
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   }, [errors]);
 
-  const getFeedbackMessage = useCallback((carbon) => {
-    const value = parseFloat(carbon);
-    if (value <= 100) {
-      return {
-        message: "Excellent! Your footprint is very low and sustainable.",
-        color: "text-emerald-600",
-        bgColor: "bg-emerald-50 border-emerald-200",
-        icon: <CheckCircle className="w-5 h-5 text-emerald-600" />,
-        recommendations: ["Keep up the great work!", "Consider sharing your eco-friendly practices with others."]
-      };
-    } else if (value <= 250) {
-      return {
-        message: "Good! You're below the global average. Keep improving!",
-        color: "text-green-700",
-        bgColor: "bg-green-50 border-green-200",
-        icon: <Award className="w-5 h-5 text-green-700" />,
-        recommendations: ["Try using public transport more often", "Consider switching to renewable energy"]
-      };
-    } else if (value <= 500) {
-      return {
-        message: "Moderate. You're on track, but there's room to reduce more.",
-        color: "text-amber-700",
-        bgColor: "bg-amber-50 border-amber-200",
-        icon: <AlertTriangle className="w-5 h-5 text-amber-700" />,
-        recommendations: ["Reduce meat consumption", "Walk or cycle for short distances", "Buy local products"]
-      };
-    } else {
-      return {
-        message: "High footprint. Consider making greener choices!",
-        color: "text-red-700",
-        bgColor: "bg-red-50 border-red-200",
-        icon: <AlertTriangle className="w-5 h-5 text-red-700" />,
-        recommendations: ["Switch to vegetarian diet", "Use public transport", "Reduce unnecessary purchases", "Implement waste reduction strategies"]
-      };
-    }
-  }, []);
+  const getDailyFeedbackMessage = useCallback((carbon) => {
+  const value = parseFloat(carbon);
+  if (value <= 5) {
+    return {
+      message: "🌱 Outstanding! Your daily carbon use is climate-friendly.",
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50 border-emerald-200",
+      icon: <CheckCircle className="w-5 h-5 text-emerald-600" />,
+      recommendations: [
+        "Maintain this eco-friendly lifestyle!",
+        "You're helping limit global warming."
+      ]
+    };
+  } else if (value <= 10) {
+    return {
+      message: "👍 Good! You're below the global average. Aim for < 5kg/day.",
+      color: "text-green-700",
+      bgColor: "bg-green-50 border-green-200",
+      icon: <Award className="w-5 h-5 text-green-700" />,
+      recommendations: [
+        "Use public transport or bike more.",
+        "Reduce energy or water heating usage."
+      ]
+    };
+  } else if (value <= 20) {
+    return {
+      message: "⚠️ Moderate. There's room for improvement.",
+      color: "text-amber-700",
+      bgColor: "bg-amber-50 border-amber-200",
+      icon: <AlertTriangle className="w-5 h-5 text-amber-700" />,
+      recommendations: [
+        "Switch to LED bulbs & energy-efficient appliances.",
+        "Try more plant-based meals.",
+        "Avoid fast fashion or excessive shopping."
+      ]
+    };
+  } else {
+    return {
+      message: "🔥 High daily footprint. Make greener choices.",
+      color: "text-red-700",
+      bgColor: "bg-red-50 border-red-200",
+      icon: <AlertTriangle className="w-5 h-5 text-red-700" />,
+      recommendations: [
+        "Avoid flights & reduce car use.",
+        "Eat less meat or dairy.",
+        "Track & cut down electricity/waste usage."
+      ]
+    };
+  }
+}, []);
+
 
   const calculateCarbon = useCallback(async () => {
     setIsCalculating(true);
