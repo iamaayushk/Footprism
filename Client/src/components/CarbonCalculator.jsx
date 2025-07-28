@@ -111,7 +111,7 @@ const CarbonCalculator = () => {
       const electricityEmission = parseFloat(formData.electricity) * EMISSION_FACTORS.electricity;
       const shoppingEmission = parseFloat(formData.shopping) * EMISSION_FACTORS.shopping;
       const wasteEmission = parseFloat(formData.trash) * EMISSION_FACTORS.waste;
-      const foodEmission = EMISSION_FACTORS.diet[formData.diet] * 30;
+      const foodEmission = EMISSION_FACTORS.diet[formData.diet];
 
       const total = travelEmission + electricityEmission + shoppingEmission + wasteEmission + foodEmission;
 
@@ -263,7 +263,7 @@ const CarbonCalculator = () => {
                 {/* Total Emissions */}
                 <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl p-6 text-white text-center mb-6">
                   <div className="text-3xl font-bold">{carbonOutput.total} kg</div>
-                  <div className="text-emerald-100">CO₂ per month</div>
+                  <div className="text-emerald-100">CO₂ per day</div>
                 </div>
 
                 {/* Breakdown */}
