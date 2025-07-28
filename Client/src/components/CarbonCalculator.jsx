@@ -46,7 +46,7 @@ const CarbonCalculator = () => {
 
   const validateInputs = useCallback((data) => {
     const newErrors = {};
-    if (!data.travel || data.travel < 0) newErrors.travel = 'Enter valid travel (km/month)';
+    if (!data.travel || data.travel < 0) newErrors.travel = 'Enter valid travel (km/day)';
     if (!data.electricity || data.electricity < 0) newErrors.electricity = 'Enter valid electricity use';
     if (!data.shopping || data.shopping < 0) newErrors.shopping = 'Enter valid shopping amount';
     if (!data.trash || data.trash < 0) newErrors.trash = 'Enter valid trash bags';
@@ -148,10 +148,10 @@ const CarbonCalculator = () => {
   }, [formData, EMISSION_FACTORS, validateInputs, getFeedbackMessage]);
 
   const inputFields = [
-    { name: 'travel', placeholder: 'Travel (km/month)', icon: Car, type: 'number' },
-    { name: 'electricity', placeholder: 'Electricity (kWh/month)', icon: Zap, type: 'number' },
-    { name: 'shopping', placeholder: 'Shopping (₹/month)', icon: ShoppingBag, type: 'number' },
-    { name: 'trash', placeholder: 'Trash Bags/month', icon: Trash2, type: 'number' }
+    { name: 'travel', placeholder: 'Travel (km/day)', icon: Car, type: 'number' },
+    { name: 'electricity', placeholder: 'Electricity (kWh/day)', icon: Zap, type: 'number' },
+    { name: 'shopping', placeholder: 'Shopping (₹/day)', icon: ShoppingBag, type: 'number' },
+    { name: 'trash', placeholder: 'Trash Bags/kg', icon: Trash2, type: 'number' }
   ];
 
   return (
