@@ -1,66 +1,72 @@
-import React, { useState } from 'react';
-import { Leaf, Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Leaf, Menu, X, ArrowRight } from 'lucide-react';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav className=" bg-white/90 backdrop-blur-md shadow-lg border-b border-green-100 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isScrolled 
+        ? 'py-3 bg-white/70 backdrop-blur-xl shadow-lg border-b border-white/20' 
+        : 'py-5 bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        <div className="flex justify-between items-center">
 
           {/* Logo */}
-          <a href='#' className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <Leaf className="w-6 h-6 text-white" />
+          <a href='/' className="flex items-center space-x-3 group">
+            <div className="relative">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-all duration-500">
+                <Leaf className="w-7 h-7 text-white" />
+              </div>
+              <div className="absolute -inset-1 bg-green-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-              FootPrism
+            <span className="text-2xl font-black tracking-tight text-gray-900">
+              Foot<span className="text-green-600">Prism</span>
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href='/'
-              className="relative text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 group"
-            >
-              Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a
-              href='#about'
-              className="relative text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 group"
-            >
-              About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a
-              href='#mission'
-              className="relative text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 group"
-            >
-              Mission
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-300"></span>
-            </a>
+          <div className="hidden md:flex items-center space-x-10">
+            {['Home', 'About', 'Mission'].map((item) => (
+              <a
+                key={item}
+                href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
+                className="relative text-sm font-semibold text-gray-700 hover:text-green-600 uppercase tracking-widest transition-colors duration-300 group"
+              >
+                {item}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-500 ease-out"></span>
+              </a>
+            ))}
           </div>
 
           {/* Login Button & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-6">
             <a
               href='/login'
-              className="hidden sm:flex bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-2 rounded-full font-medium hover:from-green-700 hover:to-emerald-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="hidden sm:flex items-center gap-2 bg-gray-900 text-white px-8 py-3 rounded-2xl font-bold hover:bg-green-600 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-gray-200"
             >
-              Login
+              Start Free
+              <ArrowRight className="w-4 h-4" />
             </a>
 
             {/* Mobile menu button */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-300"
+              className="md:hidden p-3 rounded-2xl bg-gray-100 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-300"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -69,37 +75,31 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-        } overflow-hidden bg-white/95 backdrop-blur-md border-t border-green-100`}>
-        <div className="px-4 py-4 space-y-4">
-          <a
-            href='#'
-            className="block text-gray-700 hover:text-green-600 font-medium py-2 px-3 rounded-lg hover:bg-green-50 transition-colors duration-300"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Home
-          </a>
-          <a
-            href='#about'
-            className="block text-gray-700 hover:text-green-600 font-medium py-2 px-3 rounded-lg hover:bg-green-50 transition-colors duration-300"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            About
-          </a>
-          <a
-            href='#mission'
-            className="block text-gray-700 hover:text-green-600 font-medium py-2 px-3 rounded-lg hover:bg-green-50 transition-colors duration-300"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Mission
-          </a>
-          <a
-            href='/login'
-            className="block bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-2 rounded-full font-medium text-center hover:from-green-700 hover:to-emerald-700 transition-all duration-300"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Login
-          </a>
+      <div className={`md:hidden fixed inset-x-0 top-[72px] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+      }`}>
+        <div className="mx-4 mt-2 bg-white/40 backdrop-blur-3xl rounded-[32px] shadow-2xl border border-white/40 overflow-hidden p-8 space-y-6">
+          {['Home', 'About', 'Mission'].map((item, idx) => (
+            <a
+              key={item}
+              href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
+              className="group flex items-center justify-between text-2xl font-black text-gray-900 py-4 px-6 rounded-2xl hover:bg-white/30 transition-all duration-300"
+              style={{ transitionDelay: `${idx * 50}ms` }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <span className="tracking-tight">{item}</span>
+              <ArrowRight className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-all" />
+            </a>
+          ))}
+          <div className="pt-4 border-t border-white/20">
+            <a
+              href='/login'
+              className="block w-full bg-gray-900 text-white px-6 py-5 rounded-2xl font-black text-xl text-center hover:bg-green-600 transition-all duration-300 shadow-xl"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Get Started
+            </a>
+          </div>
         </div>
       </div>
     </nav>

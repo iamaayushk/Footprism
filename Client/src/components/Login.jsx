@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock, Leaf } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from './Navbar';
 
 function Login() {
     const [formData, setFormData] = useState({ email: '', password: '' });
@@ -40,7 +41,9 @@ function Login() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-green-100 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-green-100 flex flex-col">
+            <Navbar />
+            <div className="flex-grow flex items-center justify-center p-4 pt-24 md:pt-32">
             <div className="w-full max-w-6xl">
                 <div className="text-center mb-8">
                     <div className="flex items-center justify-center mb-4">
@@ -169,6 +172,7 @@ function Login() {
                 <div className="text-center mt-8 text-gray-500 text-sm">
                     <p>© 2025 FootPrism. Made with ❤️ by Aayush</p>
                 </div>
+            </div>
             </div>
         </div>
     );

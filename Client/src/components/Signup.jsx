@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Mail, Lock, User, Leaf } from 'lucide-react';
+import { Mail, Lock, User, Leaf, Utensils } from 'lucide-react';
 import img from '../assets/signup.jpg';
+import Navbar from './Navbar';
 
 
 function Signup() {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '', diet: 'Veg' });
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -34,7 +35,9 @@ function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-green-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-green-100 flex flex-col">
+      <Navbar />
+      <div className="flex-grow flex items-center justify-center p-4 pt-24 md:pt-32">
       <div className="w-full max-w-6xl">
         {/* Header */}
         <div className="text-center mb-8">
@@ -99,6 +102,22 @@ function Signup() {
                       placeholder="Password"
                       className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl bg-gray-50/50 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all duration-200 outline-none"
                     />
+                  </div>
+
+                  {/* Diet Preference */}
+                  <div className="relative">
+                    <Utensils className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <select
+                      name="diet"
+                      value={formData.diet}
+                      onChange={handleChange}
+                      required
+                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl bg-gray-50/50 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all duration-200 outline-none appearance-none cursor-pointer"
+                    >
+                      <option value="Veg">Vegetarian</option>
+                      <option value="Non-veg">Non-Vegetarian</option>
+                      <option value="Mix">Mixed Diet</option>
+                    </select>
                   </div>
 
                   {/* Terms */}
@@ -167,6 +186,7 @@ function Signup() {
         <div className="text-center mt-8 text-gray-500 text-sm">
           <p>© 2025 FootPrism. Made with ❤️ by Aayush</p>
         </div>
+      </div>
       </div>
     </div>
   );
