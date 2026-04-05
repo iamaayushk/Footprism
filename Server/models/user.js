@@ -29,6 +29,11 @@ const userSchema= new mongoose.Schema({
     badges:{
         type:Array,
     },
+    diet:{
+        type:String,
+        enum:['Veg','Non-veg','Mix'],
+        default:'Veg',
+    },
     createdAt:{
         type:Date,
         default:Date.now,

@@ -11,7 +11,7 @@ const CarbonCalculation= require('../models/carbonLog')
 
 // signup Page
 exports.signup = async(req, res)=>{
-    const {name, email, password}= req.body;
+    const {name, email, password, diet}= req.body;
 
     try{
         const userExists= await User.findOne({email});
@@ -24,6 +24,7 @@ exports.signup = async(req, res)=>{
             name,
             email,
             password:hashedPass,
+            diet: diet || 'Veg',
         });
 
         const token= jwt.sign({id: newUser._id}, "mysecretkey", {expiresIn:"1d"});
