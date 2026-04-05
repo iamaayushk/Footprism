@@ -76,7 +76,7 @@ function Mission() {
                 </div>
             </div>
 
-            <style jsx>{`
+            <style>{`
                 @keyframes spin-slow {
                     from { transform: rotate(0deg); }
                     to { transform: rotate(360deg); }
@@ -193,7 +193,7 @@ const CarbonStep = () => {
                 </div>
             </div>
             
-            <style jsx>{`
+            <style>{`
                 @keyframes gradient-x {
                     0% { background-position: 0% 50%; }
                     50% { background-position: 100% 50%; }
